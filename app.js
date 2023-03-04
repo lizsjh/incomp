@@ -87,12 +87,12 @@ botui.message.add({
         content:'I have processed your request, and the 3rd edition will be delivered in two days.'
     });
 }).then(function(){
+    sendcomplete();
     return botui.message.add({
         delay:4000,
         loading: true,
         content:'I have resolved the issue. Please contact us again if you need further assistance. Bye.'
     });
-    sendcomplete();
 });
 
 function sendcomplete(){
