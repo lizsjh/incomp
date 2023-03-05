@@ -25,7 +25,7 @@ botui.message.add({
     return botui.message.add({
         delay:3000,
         loading: true,
-        content:'I can tackle that issue. First, could you tell me why you need to replace or return this textbook?'
+        content:'I can tackle that issue. First, could you tell me why you are making that request?'
     });
 }).then(function(){
     return botui.action.text({
