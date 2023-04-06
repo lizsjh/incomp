@@ -9,7 +9,7 @@ botui.message.add({
     return botui.message.add({
         delay:2000,
         loading: true,
-        content:'I will handle your request today. What brings you here?'
+        content:'I am handling your request today. What brings you here?'
     });
 }).then(function(){
     return botui.action.text({
@@ -25,7 +25,7 @@ botui.message.add({
     return botui.message.add({
         delay:3000,
         loading: true,
-        content:'I can tackle that issue. First, could you please explain to me why you are making that request?'
+        content:'I can help you with that. First, could you tell me why you need to replace or return this textbook?'
     });
 }).then(function(){
     return botui.action.text({
@@ -39,7 +39,30 @@ botui.message.add({
     response.push(res.value);
 }).then(function(){
     return botui.message.add({
-        delay:2000,
+        delay:3000,
+        loading: true,
+        content:'I do not understand what you said. Can you choose one of the options below?'
+    });
+}).then(function(){
+    return botui.action.button({
+        action: [
+          { text: 'Damage in the item',
+            value: 'Damage in the item' 
+          },
+          { text: 'Found a cheaper option in another store',
+            value: 'Found a cheaper option in another store' 
+          },
+          { text: 'Incorrect item delivered',
+            value: 'Incorrect item delivered'
+          }
+        ]
+    });
+}).then(function (res) { 
+    console.log(res.value);
+    response.push(res.value);
+}).then(function(){
+    return botui.message.add({
+        delay:3000,
         loading: true,
         content:'Got it. Could you input your order number below?'
     });
@@ -55,9 +78,9 @@ botui.message.add({
     response.push(res.value);
 }).then(function(){
     return botui.message.add({
-        delay:2000,
+        delay:3000,
         loading: true,
-        content:'Alright. I am retrieving your order. Please wait for a moment.'
+        content:'Alright. Please give me a moment while I am pulling up your order.'
     });
 }).then(function(){
     return botui.message.add({
@@ -78,23 +101,57 @@ botui.message.add({
     return botui.message.add({
         delay:3000,
         loading: true,
-        content:'I am processing your request. Please hold on.'
+        content:'I will process your request. Please hold on.'
     });
 }).then(function(){
     return botui.message.add({
         delay:6000,
         loading: true,
-        content:'I have processed your request, and the 3rd edition will be delivered in two days.'
+        content:'I have processed your request. Please make sure to return the older edition. Is there anything else you need?'
     });
+ }).then(function(){
+    return botui.action.text({
+        action: {
+          placeholder: 'Enter your message.'
+        }
+    
+    });
+}).then(function (res) { 
+    console.log(res.value);
+    response.push(res.value);
+}).then(function(){
+    return botui.message.add({
+        delay:3000,
+        loading: true,
+        content:'I cannot process your message. Please select one.'
+    });
+ ).then(function(){
+    return botui.action.button({
+        action: [
+          { text: 'Express shipping ($15)',
+            value: 'Express shipping ($15)' 
+          },
+          { text: 'Subscribe to the newsletter for discounts and offers',
+            value: 'Subscribe to the newsletter for discounts and offers' 
+          },
+          { text: 'Create a membership card',
+            value: 'Create a membership card'
+          }
+        ]
+    });
+}).then(function (res) { 
+    console.log(res.value);
+    response.push(res.value);
 }).then(function(){
     sendcomplete();
     return botui.message.add({
         delay:4000,
         loading: true,
-        content:'I have resolved the issue. Please contact us again if you need further assistance. Bye.'
+        content:'I have processed your request, and the issue has been resolved. Please contact us again if you need further assistance. Bye.'
     });
+    
 });
 
 function sendcomplete(){
-    window.parent.postMessage({"message": "completed","text1":response[0],"text2":response[1],"text3":response[2], "text4":response[3]}, "*");
+    window.parent.postMessage({"message": "completed","text1":response[0],"text2":response[1],"text3":response[2], "text4":response[3], "text5":response[4], "text6":response[5], "text7":response[6]}, "*");
 };
