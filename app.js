@@ -125,7 +125,7 @@ botui.message.add({
         loading: true,
         content:'I cannot process your message. Please select one.'
     });
- ).then(function(){
+}).then(function(){
     return botui.action.button({
         action: [
           { text: 'Express shipping ($15)',
