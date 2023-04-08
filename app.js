@@ -52,8 +52,8 @@ botui.message.add({
           { text: 'Found a cheaper option in another store',
             value: 'Found a cheaper option in another store' 
           },
-          { text: 'Incorrect item delivered',
-            value: 'Incorrect item delivered'
+          { text: 'Decided to get an e-book version',
+            value: 'Decided to get an e-book version'
           }
         ]
     });
@@ -128,14 +128,14 @@ botui.message.add({
 }).then(function(){
     return botui.action.button({
         action: [
-          { text: 'Express shipping ($15)',
-            value: 'Express shipping ($15)' 
+          { text: 'Express shipping for the delivery ($15)',
+            value: 'Express shipping for the delivery ($15)' 
           },
           { text: 'Subscribe to the newsletter for discounts and offers',
             value: 'Subscribe to the newsletter for discounts and offers' 
           },
-          { text: 'Create a membership card',
-            value: 'Create a membership card'
+          { text: 'Create a membership',
+            value: 'Create a membership'
           }
         ]
     });
