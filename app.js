@@ -23,7 +23,7 @@ botui.message.add({
     response.push(res.value);
 }).then(function(){
     return botui.message.add({
-        delay:4000,
+        delay:6000,
         loading: true,
         content:'I do not understand what you said. Can you choose from the options below? You can select multiple if you have multiple requests.'
     });
@@ -54,7 +54,7 @@ botui.message.add({
     response.push(res.value);
 }).then(function(){
     return botui.message.add({
-        delay:4000,
+        delay:6000,
         loading: true,
         content:'I can help you with that. Please provide your order number below.'
     });
