@@ -88,13 +88,13 @@ botui.message.add({
     return botui.message.add({
         delay:4000,
         loading: true,
-        content:'Got it. I will process your request. Please hold on.'
+        content:'Got it. I will process your request(s). Please hold on.'
     });
 }).then(function(){
     return botui.message.add({
         delay:6000,
         loading: true,
-        content:'I have processed your request and the issue is resolved.'
+        content:'I have processed your request(s) and the issue(s) is resolved.'
     });
 }).then(function(){
     sendcomplete();
